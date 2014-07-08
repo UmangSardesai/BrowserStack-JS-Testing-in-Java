@@ -20,17 +20,42 @@ I have explained this considering the user has already implemented the BrowserSt
 
 All the JS testing is done on BrowserStack.
 This `HttpClient` has to make a request to http://api.browserstack.com/3 (here 3 is the version no.)
-Headers such as (-H command in curl) is done using `setHeader` function.
-Note: The **headers** are not used in Post request, though are used in cURL.
+
+**Headers** such as (-H command in curl) is done using `setHeader` function.
+**Note:** The headers are not used in Post request, though are used in cURL.
+```java
+		getRequest.setHeader("Accept","application/json");
+		getRequest.setHeader("Content-type","application/json");
+```
 
 **Authentication** of username and key (-U command in curl) is done using same `setHeader` function, but you have to explicitly mention "Authentication" in the function parameters
 Also the username and key has to be encoded before the request is made. Encoding is done using `Base64.encodeBase64String(key.getBytes())`
+```java
+		String key = "umangsardesai1:jSKjzgP8o2X41YZArqR1";
+		String encoding = Base64.encodeBase64String(key.getBytes());
+		getRequest.setHeader("Authorization", "Basic " + encoding);
+```
 
 The **data parameters**(-d command in curl) is sent using `setEntity` function. 
 First you make a arraylist of all the parameters. 
 The arraylist has to be of type of `NameValuePair`.
+```java
+		ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+		nameValuePairs.add(new BasicNameValuePair("os", obj.get("os")+""));
+		nameValuePairs.add(new BasicNameValuePair("os_version", obj.get("os_version")+""));
+		nameValuePairs.add(new BasicNameValuePair("browser", obj.get("browser")+""));
+		nameValuePairs.add(new BasicNameValuePair("browser_version", obj.get("browser_version")+""));
+		nameValuePairs.add(new BasicNameValuePair("url", url2));
+		nameValuePairs.add(new BasicNameValuePair("build", "JS Testing on Java"));
+		postRequest.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+```
 
 We use `HttpGet` object for *GET request*, `HttpPost` object for *POST request* and so on.
+```java
+		String key = "umangsardesai1:jSKjzgP8o2X41YZArqR1";
+		String encoding = Base64.encodeBase64String(key.getBytes());
+		getRequest.setHeader("Authorization", "Basic " + encoding);
+```
 
 the request is sent to BrowserStack using `client.execute()` method.
 the return is a `HttpResponse` which u can print.
