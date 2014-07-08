@@ -34,7 +34,7 @@ the request is sent to BrowserStack using `client.execute()` method.
 the return is a `HttpResponse` which u can print.
 
 **Note:** Before deleting a worker the request created for taking a screenshot must be closed.
-this is done using `EntityUtils.consume(response.getEntity())`
+This is done using `EntityUtils.consume(response.getEntity())`
 
 ###Running JS Testing for different browsers
 Javascript testing can run only one test at a time.
