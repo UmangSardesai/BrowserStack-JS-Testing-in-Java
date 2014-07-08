@@ -1,0 +1,31 @@
+[{
+    "browser": "chrome",
+    "browser_version": "30.0",
+    "os": "Windows",
+    "os_version": "7"
+  },
+  {
+    "browser": "ie",
+    "browser_version": "10.0",
+    "os": "Windows",
+    "os_version": "8"
+  },
+  {
+    "browser": "firefox",
+    "browser_version": "17.0",
+    "os": "Windows",
+    "os_version": "xp"
+  },
+  {
+    "browser": "opera",
+    "browser_version": "12.15",
+    "os": "Windows",
+    "os_version": "8.1"
+  },
+  {
+    "browser": "safari",
+    "browser_version": "5.1",
+    "os": "Windows",
+    "os_version": "8.1"
+  }
+]
