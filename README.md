@@ -16,8 +16,10 @@ You can get the response of the `HttpClient` as an `InputStream`.
 2. json-simple-1.1.1.jar
 
 ###Code Explanation
+I have explained this considering the user has already implemented the BrowserStack API using cURL commands.
+
 All the JS testing is done on BrowserStack.
-This httpclient has to make a request to http://api.browserstack.com/3 (here 3 is the version no.)
+This `HttpClient` has to make a request to http://api.browserstack.com/3 (here 3 is the version no.)
 Headers such as (-H command in curl) is done using `setHeader` function.
 Note: The **headers** are not used in Post request, though are used in cURL.
 
