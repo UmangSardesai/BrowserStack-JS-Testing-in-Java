@@ -24,6 +24,7 @@ import org.json.simple.parser.ParseException;
 public class curlTrail {
 	
 	static JSONArray jsonArray;
+	static JSONParser parser; 
 	static int count=0;
 	static HttpClient client;
 	static String jobID="";
@@ -39,7 +40,7 @@ public class curlTrail {
 		ct.makeGetRequest("http://api.browserstack.com/3/browsers");
 		
 		//Getting the set of browsers to be tested
-		JSONParser parser = new JSONParser();
+		parser = new JSONParser();
 		Object obj = parser.parse(new FileReader("C:\\Python33\\Selenium\\browsers.json"));//path where your JSON file is stored
 		jsonArray = (JSONArray) obj;
 
@@ -48,7 +49,7 @@ public class curlTrail {
 			
 			//Create a worker
 			System.out.println("Creating a worker "+count);
-			Boolean flag = ct.makePostRequest("http://api.browserstack.com/3/worker","http://www.google.com"); //The second parameter is the link on which you wish to do JS Testing
+			Boolean flag = ct.makePostRequest("http://api.browserstack.com/3/worker","http://www.gsmarena.com");//The second parameter is the link on which you wish to do JS Testing
 			
 			Thread.sleep(5000);
 			
@@ -111,7 +112,7 @@ public class curlTrail {
 		return line;
 	}
 	
-	public Boolean makePostRequest(String url, String url2) throws IOException
+	public Boolean makePostRequest(String url, String url2) throws IOException, ParseException
 	{	
 		HttpPost postRequest = new HttpPost(url);
 		JSONObject obj=(JSONObject)jsonArray.get(count);
@@ -137,11 +138,11 @@ public class curlTrail {
 		String line = "";
 		while ((line = rd.readLine()) != null) 
 		{
-			System.out.print(line);
+			System.out.println(line);
+			JSONObject JSobj = (JSONObject) parser.parse(line);
+			jobID=JSobj.get("id")+"";
 			if(!line.contains("error"))
 			{
-				int a=line.indexOf("\"id\"");
-				jobID=line.substring(a+5,a+13);
 				System.out.println("\tJobID="+jobID);
 				System.out.println();
 			}
