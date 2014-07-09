@@ -57,8 +57,19 @@ HttpGet getRequest = new HttpGet(url);
 HttpPost postRequest = new HttpPost(url);
 ```
 
-the request is sent to BrowserStack using `client.execute()` method.
-the return is a `HttpResponse` which u can print.
+The request is sent to BrowserStack using `client.execute()` method.
+The return is a `HttpResponse` which can be converted to a `String` object and printed whenever necessary
+```java
+response = client.execute(postRequest);
+BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+String line = rd.readLine();
+```
+
+To get the job ID from response which is generated after a worker is created, the `HttpResponse` has to converted to a `JSONObject`  
+```java
+JSONObject JSobj = (JSONObject) parser.parse(line);
+jobID=JSobj.get("id")+"";
+```
 
 **Note:** Before deleting a worker the request created for taking a screenshot must be closed.
 This is done using `EntityUtils.consume(response.getEntity())`
@@ -69,3 +80,10 @@ So all the different parameters for a particular test case is stored in a `JSON`
 All the different sets from this JSON file are extracted and stored in `JSONArray`.
 Each set is a `JSONObject`.
 You run the test in a loop taking one set at a time.
+
+```java
+parser = new JSONParser();
+Object obj = parser.parse(new FileReader("C:\\JAVA\\Selenium\\browsers.json"));
+jsonArray = (JSONArray) obj;
+JSONObject obj=(JSONObject)jsonArray.get(count);
+```
