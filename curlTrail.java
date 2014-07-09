@@ -41,7 +41,7 @@ public class curlTrail {
 		
 		//Getting the set of browsers to be tested
 		parser = new JSONParser();
-		Object obj = parser.parse(new FileReader("C:\\Python33\\Selenium\\browsers.json"));//path where your JSON file is stored
+		Object obj = parser.parse(new FileReader("C:\\JAVA\\Selenium\\browsers.json"));//path where your JSON file is stored
 		jsonArray = (JSONArray) obj;
 
 		for(int i=0;i<jsonArray.size();i++,count++)
