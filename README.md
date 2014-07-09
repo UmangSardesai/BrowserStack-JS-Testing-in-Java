@@ -31,7 +31,7 @@ This `HttpClient` has to make a request to http://api.browserstack.com/3 (here 3
 **Authentication** of username and key (-U command in curl) is done using same `setHeader` function, but you have to explicitly mention "Authentication" in the function parameters
 Also the username and key has to be encoded before the request is made. Encoding is done using `Base64.encodeBase64String(key.getBytes())`
 ```java
-		String key = "umangsardesai1:jSKjzgP8o2X41YZArqR1";
+		String key = "<username>:<access-key>";
 		String encoding = Base64.encodeBase64String(key.getBytes());
 		getRequest.setHeader("Authorization", "Basic " + encoding);
 ```
