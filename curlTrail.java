@@ -96,7 +96,7 @@ public class curlTrail {
 		getRequest.setHeader("Accept","application/json");
 		getRequest.setHeader("Content-type","application/json");
 
-		String key = "umangsardesai1:jSKjzgP8o2X41YZArqR1";
+		String key = "<username>:<access-key>";
 		String encoding = Base64.encodeBase64String(key.getBytes());
 		getRequest.setHeader("Authorization", "Basic " + encoding);
 
@@ -119,7 +119,7 @@ public class curlTrail {
 
 //		Content-type and Accept header not required
 
-		String key = "umangsardesai1:jSKjzgP8o2X41YZArqR1";
+		String key = "<username>:<access-key>";
 		String encoding = Base64.encodeBase64String(key.getBytes());
 		postRequest.setHeader("Authorization", "Basic " + encoding);
 
@@ -165,7 +165,7 @@ public class curlTrail {
 		deleteRequest.setHeader("Accept","application/json");
 		deleteRequest.setHeader("Content-type","application/json");
 
-		String key = "umangsardesai1:jSKjzgP8o2X41YZArqR1";
+		String key = "<username>:<access-key>";
 		String encoding = Base64.encodeBase64String(key.getBytes());
 		deleteRequest.setHeader("Authorization", "Basic " + encoding);
 
@@ -186,7 +186,7 @@ public class curlTrail {
 		getRequest.setHeader("Accept",type);
 		getRequest.setHeader("Content-type",type);
 
-		String key = "umangsardesai1:jSKjzgP8o2X41YZArqR1";
+		String key = "<username>:<access-key>";
 		String encoding = Base64.encodeBase64String(key.getBytes());
 		getRequest.setHeader("Authorization", "Basic " + encoding);
 
