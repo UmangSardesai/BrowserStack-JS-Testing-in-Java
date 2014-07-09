@@ -22,6 +22,7 @@ All the JS testing is done on BrowserStack.
 This `HttpClient` has to make a request to http://api.browserstack.com/3 (here 3 is the version no.)
 
 **Headers** such as (-H command in curl) is done using `setHeader` function.
+
 **Note:** The headers are not used in Post request, though are used in cURL.
 ```java
 getRequest.setHeader("Accept","application/json");
