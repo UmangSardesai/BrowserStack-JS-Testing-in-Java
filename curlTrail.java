@@ -49,7 +49,7 @@ public class curlTrail {
 			
 			//Create a worker
 			System.out.println("Creating a worker "+count);
-			Boolean flag = ct.makePostRequest("http://api.browserstack.com/3/worker","http://www.gsmarena.com");//The second parameter is the link on which you wish to do JS Testing
+			Boolean flag = ct.makePostRequest("http://api.browserstack.com/3/worker","http://www.google.com");//The second parameter is the link on which you wish to do JS Testing
 			
 			Thread.sleep(5000);
 			
