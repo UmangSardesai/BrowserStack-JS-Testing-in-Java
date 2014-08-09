@@ -29,7 +29,7 @@ public class Main extends Client
 		try
 		{
 			parser = new JSONParser();
-			Object obj = parser.parse(new FileReader("C:\\Selenium\\Java\\browsers.json"));//path where your JSON file is stored
+			Object obj = parser.parse(new FileReader("C:\\Selenium\\Java\\browsers.json")); //path where your JSON file is stored
 			jsonArray = (JSONArray) obj;
 		}
 		
@@ -44,7 +44,7 @@ public class Main extends Client
 			JSONObject j=(JSONObject)jsonArray.get(i);
 			
 			System.out.println("Creating Worker "+(i+1)+":");
-			j=cl.createWorker(j,"http://google.com");//The URL on which you wish to test
+			j=cl.createWorker(j,"http://google.com"); //The URL on which you wish to test
 			if((j+"").contains("error"))
 			{
 				System.out.println("Worker not created ");
@@ -80,7 +80,7 @@ public class Main extends Client
 			Thread.sleep(5000);
 			
 			System.out.println("Taking screenshot as IMG");
-			cl.takeScreenshotAsIMG(jobID, "C:\\Selenium\\Java\\Screenshots\\Screenie.bmp");//path where the screenshot gets saved
+			cl.takeScreenshotAsIMG(jobID, "C:\\Selenium\\Java\\Screenshots\\Screenie.bmp"); //path where the screenshot gets saved
 			System.out.println();
 			Thread.sleep(3000);
 			
